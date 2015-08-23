@@ -8,8 +8,8 @@
     visually shows the decision boundary """
 
 
-from prep_terrain_data import makeTerrainData
-from class_vis import prettyPicture, output_image
+from ..bin.prep_terrain_data import makeTerrainData
+from ..bin.class_vis import prettyPicture, output_image
 from ClassifyNB import classify
 #from classify import NBAccuracy
 
