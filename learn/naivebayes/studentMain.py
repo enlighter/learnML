@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pylab as pl
 
+#from pprintpp import pprint
+#pprint(makeTerrainData())
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
