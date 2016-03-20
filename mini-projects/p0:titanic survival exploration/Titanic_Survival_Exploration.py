@@ -36,28 +36,36 @@ def predictions_3(data):
 
     predictions = []
     for _, passenger in data.iterrows():
+        #print passenger
 
         # Remove the 'pass' statement below
         # and write your prediction conditions here
         if passenger['Sex'] == 'male':
             if passenger['Age'] < 10:
                 predictions.append(1)
+                print "%d" %(passenger['PassengerId'])
             else:
                 if passenger['Pclass'] == 1:
                     if passenger['SibSp'] == 0:
                         if passenger['Age'] >= 10 and passenger['Age'] <= 40:
                             predictions.append(1)
+                            print "%d" %(passenger['PassengerId'])
                         else:
                             predictions.append(0)
+                            print "%d" %(passenger['PassengerId'])
                     elif passenger['SibSp'] == 1:
                         if passenger['Age'] >= 20 and passenger['Age'] <= 50:
                             predictions.append(1)
+                            print "%d" %(passenger['PassengerId'])
                         else:
                             predictions.append(0)
+                            print "%d" %(passenger['PassengerId'])
                 else:
                     predictions.append(0)
+                    print "%d" %(passenger['PassengerId'])
         elif passenger['Sex'] == 'female':
             predictions.append(1)
+            print "%d" %(passenger['PassengerId'])
 
     # Return our predictions
     return pd.Series(predictions)
@@ -65,4 +73,6 @@ def predictions_3(data):
 # Make the predictions
 predictions = predictions_3(data)
 
+print "no. of outcomes = %d" %(len(outcomes))
+print "no. of predictions = %d" %(len(predictions))
 print accuracy_score(outcomes, predictions)
