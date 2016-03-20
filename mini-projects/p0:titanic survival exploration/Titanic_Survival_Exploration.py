@@ -1,14 +1,18 @@
 import numpy as np
 import pandas as pd
+from pprintpp import pprint
 
 # RMS Titanic data visualization code
 from titanic_visualizations import survival_stats
 from IPython.display import display
-import matplotlib
 
 # Load the dataset
 in_file = 'titanic_data.csv'
 full_data = pd.read_csv(in_file)
+
+print type(full_data)
+pprint(full_data)
+exit()
 
 # Store the 'Survived' feature in a new variable and remove it from the dataset
 outcomes = full_data['Survived']
@@ -53,7 +57,7 @@ def predictions_3(data):
                         else:
                             predictions.append(0)
                             print "%d" %(passenger['PassengerId'])
-                    elif passenger['SibSp'] == 1:
+                    elif passenger['SibSp'] > 0:
                         if passenger['Age'] >= 20 and passenger['Age'] <= 50:
                             predictions.append(1)
                             print "%d" %(passenger['PassengerId'])
