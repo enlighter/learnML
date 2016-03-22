@@ -10,10 +10,6 @@ from IPython.display import display
 in_file = 'titanic_data.csv'
 full_data = pd.read_csv(in_file)
 
-print type(full_data)
-pprint(full_data)
-exit()
-
 # Store the 'Survived' feature in a new variable and remove it from the dataset
 outcomes = full_data['Survived']
 data = full_data.drop('Survived', axis = 1)
@@ -34,6 +30,8 @@ def accuracy_score(truth, pred):
 #survival_stats(data, outcomes, 'Age', ["Sex == 'male'", "Pclass <= 3", "SibSp == 1"])
 #survival_stats(data, outcomes, 'Age', ["Sex == 'male'", "Pclass < 2", "SibSp == 0"])
 #survival_stats(data, outcomes, 'Age', ["Sex == 'male'", "Pclass < 2", "SibSp == 1"])
+survival_stats(data, outcomes, 'Pclass', ["Sex == 'female'", "SibSp == 0"])
+survival_stats(data, outcomes, 'Pclass', ["Sex == 'female'", "SibSp > 0"])
 
 def predictions_3(data):
     """ Model with multiple features. Makes a prediction with an accuracy of at least 80%. """
@@ -68,8 +66,16 @@ def predictions_3(data):
                     predictions.append(0)
                     print "%d" %(passenger['PassengerId'])
         elif passenger['Sex'] == 'female':
-            predictions.append(1)
-            print "%d" %(passenger['PassengerId'])
+        	if passenger['Pclass'] == 3:
+        		if passenger['SibSp'] > 0:
+        			predictions.append(0)
+        			print "%d" %(passenger['PassengerId'])
+        		else:
+        			predictions.append(1)
+        			print "%d" %(passenger['PassengerId'])
+        	else:
+        		predictions.append(1)
+        		print "%d" %(passenger['PassengerId'])
 
     # Return our predictions
     return pd.Series(predictions)
@@ -77,6 +83,4 @@ def predictions_3(data):
 # Make the predictions
 predictions = predictions_3(data)
 
-print "no. of outcomes = %d" %(len(outcomes))
-print "no. of predictions = %d" %(len(predictions))
 print accuracy_score(outcomes, predictions)
