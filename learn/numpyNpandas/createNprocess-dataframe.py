@@ -47,7 +47,7 @@ def create_dataframe():
 
     return olympic_medal_counts_df
 
-def avg_medal_count():
+def avg_bronze_medal_count():
     '''
     Compute the average number of bronze medals earned by countries who 
     earned at least one gold medal.  
@@ -75,5 +75,25 @@ def avg_medal_count():
 
     return avg_bronze_at_least_one_gold
 
-print create_dataframe()
+def avg_medal_count():
+    '''
+    Using the dataframe's apply method, create a new Series called 
+    avg_medal_count that indicates the average number of gold, silver,
+    and bronze medals earned amongst countries who earned at 
+    least one medal of any kind at the 2014 Sochi olympics.  Note that
+    the countries list already only includes countries that have earned
+    at least one medal. No additional filtering is necessary.
+    
+    You do not need to call the function in your code when running it in the
+    browser - the grader will do that automatically when you submit or test it.
+    '''
+   
+    df = create_dataframe()
+    
+    avg_medal_count_by_type = df[['gold', 'silver', 'bronze']].apply(mean)
+    avg_medal_count_by_country = df.loc[:][['gold', 'silver', 'bronze']].apply(mean, axis=1)
+
+    return avg_medal_count_by_type, avg_medal_count_by_country
+
+#print create_dataframe()
 print avg_medal_count()
