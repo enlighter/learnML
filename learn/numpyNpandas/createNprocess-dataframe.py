@@ -98,7 +98,7 @@ def avg_medal_count():
 
     return avg_medal_count_by_type, avg_medal_count_by_country
 
-def numpy_dot():
+def numpy_dot_1():
     '''
     Imagine a point system in which each country is awarded 4 points for each
     gold medal,  2 points for each silver medal, and one point for each 
@@ -137,6 +137,17 @@ def numpy_dot():
 
     return olympic_points_df
 
+def numpy_dot_2():
+	df = create_dataframe()
+
+	points = dot(df[['gold', 'silver', 'bronze']],[4,2,1])
+	olympic_points_df = DataFrame({
+		'country_name' : df.country,
+		'points' : Series(points),
+	})
+
+	return olympic_points_df
+
 #print create_dataframe()
 #print avg_medal_count()
-print numpy_dot()
+print numpy_dot_2()
