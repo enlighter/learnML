@@ -41,7 +41,7 @@ features_train, features_test, labels_train, labels_test = cross_validation.trai
 clf = SVC(kernel="linear", C=1.)
 clf.fit(features_train, labels_train)
 
-print clf.score(features_test, labels_test)
+print(clf.score(features_test, labels_test))
 
 
 ##############################################################
