@@ -1,3 +1,6 @@
 [submodule "mini-projects/ud120-projects"]
 	path = mini-projects/ud120-projects
 	url = https://github.com/enlighter/ud120-projects.git
+[submodule "learn/dask-tutorial"]
+	path = learn/dask-tutorial
+	url = https://github.com/dask/dask-tutorial.git
