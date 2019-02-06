@@ -4,3 +4,6 @@
 [submodule "learn/dask-tutorial"]
 	path = learn/dask-tutorial
 	url = https://github.com/dask/dask-tutorial.git
+[submodule "projects/mlnd_projects_data"]
+	path = projects/mlnd_projects_data
+	url = https://github.com/udacity/machine-learning.git
