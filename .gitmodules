@@ -7,3 +7,6 @@
 [submodule "projects/mlnd_projects_data"]
 	path = projects/mlnd_projects_data
 	url = https://github.com/udacity/machine-learning.git
+[submodule "learn/computer-vision/CVND_Exercises"]
+	path = learn/computer-vision/CVND_Exercises
+	url = https://github.com/enlighter/CVND_Exercises.git
