@@ -10,3 +10,6 @@
 [submodule "learn/computer-vision/CVND_Exercises"]
 	path = learn/computer-vision/CVND_Exercises
 	url = https://github.com/enlighter/CVND_Exercises.git
+[submodule "learn/computer-vision/intro-computervision"]
+	path = learn/computer-vision/intro-computervision
+	url = git@github.com:enlighter/intro-computervision.git
