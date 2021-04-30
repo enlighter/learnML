@@ -13,3 +13,6 @@
 [submodule "learn/computer-vision/intro-computervision"]
 	path = learn/computer-vision/intro-computervision
 	url = git@github.com:enlighter/intro-computervision.git
+[submodule "learn/deeplearning/DL_PyTorch"]
+	path = learn/deeplearning/DL_PyTorch
+	url = git@github.com:enlighter/DL_PyTorch.git
